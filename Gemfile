@@ -14,6 +14,7 @@ gem "rails", "~> 5.1.4"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+gem 'devise'
 
 group :development, :test do
   gem "better_errors"
@@ -26,6 +27,7 @@ group :development, :test do
   gem "rubocop", "~> 0.52.1", require: false
   gem "selenium-webdriver"
   gem 'factory_bot_rails'
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
 end
 
 group :development do
