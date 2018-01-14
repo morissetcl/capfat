@@ -17,6 +17,7 @@ gem "uglifier", ">= 1.3.0"
 gem 'devise'
 
 group :development, :test do
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   gem "better_errors"
   gem "binding_of_caller"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -28,6 +29,7 @@ group :development, :test do
   gem "selenium-webdriver"
   gem 'factory_bot_rails'
   gem 'launchy', '~> 2.4', '>= 2.4.3'
+  gem 'shoulda-matchers', '~> 3.0', require: false
 end
 
 group :development do
