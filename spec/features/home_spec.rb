@@ -7,7 +7,7 @@ RSpec.describe "home", :feature do
   end
 
   it "affiche la home" do
-    visit "/"
+    visit root_path
     expect(page).to have_content ""
   end
 end
