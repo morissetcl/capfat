@@ -28,6 +28,7 @@ group :development, :test do
   gem "selenium-webdriver"
   gem 'factory_bot_rails'
   gem 'launchy', '~> 2.4', '>= 2.4.3'
+  gem 'shoulda-matchers', '~> 3.0', require: false
 end
 
 group :development do
