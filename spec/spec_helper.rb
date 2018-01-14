@@ -15,27 +15,10 @@ RSpec.configure do |config|
   # config.profile_examples = 10
 end
 
-def model_validation(model)
-  attribute = model.new.attributes.keys
-  array = []
-  attribute.each do |a|
-    model.validators_on(a.to_sym).any? do |validator|
-      return if presence_validation?(validator)
-      array << a
-      array.each do |a|
-        it { should validate_presence_of(a) }
-      end
-    end
-  end
-end
-
-def presence_validation?(validator)
-  validator.kind_of?(ActiveModel::Validations::PresenceValidator)
-end
-
 def login_as_user
-  visit new_user_session_path
+  visit new_user_registration_path
   fill_in :user_email, with: 'email@email.fr'
   fill_in :user_password, with: 'password'
-  click_on 'Log in'
+  fill_in :user_password_confirmation, with: 'password'
+  click_on 'Sign up'
 end
