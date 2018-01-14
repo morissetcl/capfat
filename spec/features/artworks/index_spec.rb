@@ -2,12 +2,19 @@ require "rails_helper"
 
 RSpec.describe "Artwork#index", :feature do
   attr_reader :artwork
-
-  before(:each) { @artwork = create :artwork }
-
-  it "display all artworks", :focus do
-    visit artworks_path
-    expect(page).to have_content artwork.email
-    expect(page).to have_content artwork.name
+  before :each do
+    @artwork = create :artwork
   end
+  it 'affiche la liste des oeuvres' do
+    visit artworks_path
+    expect(page).to artwork_index_page(artwork)
+  end
+
+  matcher :artwork_index_page do |artwork|
+    match_unless_raises do |page|
+      expect(page).to have_content artwork.name
+      expect(page).to have_content artwork.description
+      end
+    end
+
 end

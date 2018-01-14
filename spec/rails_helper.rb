@@ -5,6 +5,7 @@ require "spec_helper"
 require "rspec/rails"
 require 'support/factory_bot'
 require 'shoulda/matchers'
+require 'database_cleaner'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 # Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -15,8 +16,17 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = true
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
 end
-require 'shoulda/matchers'
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -24,3 +34,4 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
