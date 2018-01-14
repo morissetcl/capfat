@@ -9,12 +9,4 @@ RSpec.describe "Artwork#index", :feature do
     visit artworks_path
     expect(page).to artwork_index_page(artwork)
   end
-
-  matcher :artwork_index_page do |artwork|
-    match_unless_raises do |page|
-      expect(page).to have_content artwork.name
-      expect(page).to have_content artwork.description
-      end
-    end
-
 end
