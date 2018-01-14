@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :artwork do
-    name "MyString"
-    description "MyString"
-    technique "MyString"
-    user nil
-    price 1.5
+    name 'Super Artwork'
+    description 'Lorem Ipsum Ipsum'
+    technique 'Spray Paint'
+    user
+    price 5.8
   end
 end

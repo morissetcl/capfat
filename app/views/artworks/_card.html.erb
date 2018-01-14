@@ -1,0 +1,13 @@
+<% @artworks.each do |a| %>
+  <div>
+    <div class="uk-card uk-card-default uk-card-small">
+       <div class="uk-card-media-top">
+         <img src="http://fakeimg.pl/300/">
+       </div>
+       <div class="uk-card-body">
+           <h3 class="uk-card-title"><%= a.name%></h3>
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+       </div>
+    </div>
+  </div>
+<% end %>
