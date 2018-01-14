@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180114091220) do
+ActiveRecord::Schema.define(version: 20180114204131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artwork_attachments", force: :cascade do |t|
+    t.bigint "artwork_id"
+    t.string "picture"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_artwork_attachments_on_artwork_id"
+  end
 
   create_table "artworks", force: :cascade do |t|
     t.string "name"
@@ -56,5 +64,6 @@ ActiveRecord::Schema.define(version: 20180114091220) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "artwork_attachments", "artworks"
   add_foreign_key "artworks", "users"
 end
