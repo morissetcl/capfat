@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :arwtork_attachment do
-    artwork nil
+  factory :artwork_attachment do
+    artwork
     picture "MyString"
   end
 end

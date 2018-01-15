@@ -18,6 +18,8 @@ gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem 'figaro'
 gem 'cloudinary'
+gem 'simple_form'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
