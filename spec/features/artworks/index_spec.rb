@@ -1,14 +1,11 @@
 require "rails_helper"
 
 RSpec.describe "Artwork#index", :feature do
-  attr_reader :artwork
 
-  before :each do
-    login_as_user
-    @artwork = create :artwork
-  end
-  
-  it 'affiche la liste des oeuvres' do
+  include_context 'login'
+
+  it 'affiche la liste des oeuvres', :focus do
+    artwork = create :artwork
     visit artworks_path
     expect(page).to artwork_index_page(artwork)
   end

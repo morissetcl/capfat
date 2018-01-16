@@ -34,19 +34,6 @@ ActiveRecord::Schema.define(version: 20180114204131) do
     t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
-  create_table "passwordless_sessions", force: :cascade do |t|
-    t.string "authenticatable_type"
-    t.bigint "authenticatable_id"
-    t.datetime "timeout_at", null: false
-    t.datetime "expires_at", null: false
-    t.text "user_agent", null: false
-    t.string "remote_addr", null: false
-    t.string "token", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["authenticatable_type", "authenticatable_id"], name: "authenticatable"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

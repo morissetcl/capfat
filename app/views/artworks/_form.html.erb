@@ -1,0 +1,8 @@
+<%= simple_form_for @artwork do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.input :name, label:false, placeholder: "Nom de votre oeuvre" %>
+  <%= f.input :description, label:false, placeholder: "Décrivez-la !" %>
+  <%= f.input :technique, label:false, placeholder: "Technique utilisée" %>
+  <%= f.input :price, label:false, placeholder: "Prix/jour" %>
+  <%= f.button :submit, class:"uk-button uk-button-default" %>
+<% end %>
