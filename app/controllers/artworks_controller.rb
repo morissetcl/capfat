@@ -7,12 +7,19 @@ class ArtworksController < ApplicationController
 
   def new
     @artwork = Artwork.new
+    @artwork_attachment = @artwork.artwork_attachments.build
   end
 
   def create
-    @artwork = Artwork.create!(artwork_params)
+    @artwork = Artwork.new(artwork_params)
+    p @artwork
     if @artwork.save
-      redirect_to artworks_path
+      p  params[:artwork_attachments][:picture]
+      params[:artwork_attachments][:picture].each do |a|
+         @artwork_attachment = @artwork.artwork_attachments.create!(:picture => a, :artwork_id => @artwork.id)
+      end
+      p @artwork
+      redirect_to artworks_path, notice: 'Artwork was successfully created.'
     else
       render :new
     end

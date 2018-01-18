@@ -12,7 +12,8 @@ RSpec.describe "Artwork#new", :feature do
        fill_in :artwork_description, with: 'Lorem lorem lorem lorem'
        fill_in :artwork_technique, with: 'Spray'
        fill_in :artwork_price, with: 12.9
+       attach_file("artwork_attachments[picture][]", Rails.root + "spec/fixtures/banner-min.jpg")
        click_on 'Create Artwork'
-     }.to change { Artwork.count }
+     }.to change { Artwork.count && ArtworkAttachment.count }
   end
 end

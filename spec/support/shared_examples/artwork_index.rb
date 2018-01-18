@@ -1,4 +1,4 @@
-RSpec.shared_examples_for 'artwork_index_page' do |model|
+RSpec.shared_examples 'artwork_index_page' do |model|
   it 'affiche la liste des oeuvres' do
     resource = create model
     path = model.to_s

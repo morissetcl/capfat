@@ -4,5 +4,8 @@
   <%= f.input :description, label:false, placeholder: "Décrivez-la !" %>
   <%= f.input :technique, label:false, placeholder: "Technique utilisée" %>
   <%= f.input :price, label:false, placeholder: "Prix/jour" %>
+  <%= f.fields_for :artwork_attachments do |p| %>
+       <%= p.file_field :picture, :multiple => true, name: "artwork_attachments[picture][]", label: 'ok' %>
+   <% end %>
   <%= f.button :submit, class:"uk-button uk-button-default" %>
 <% end %>
