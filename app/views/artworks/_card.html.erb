@@ -2,7 +2,9 @@
   <div>
     <div class="uk-card uk-card-default uk-card-small">
        <div class="uk-card-media-top">
-         <img src="http://fakeimg.pl/300/">
+         <% if a.artwork_attachments.first.present? %>
+           <%=  cl_image_tag a.artwork_attachments.first.picture, height: 250, width: 350, crop: :fill %>
+        <% end %>
        </div>
        <div class="uk-card-body">
            <h3 class="uk-card-title"><%= a.name%></h3>

@@ -4,7 +4,7 @@ RSpec.describe "Artwork#new", :feature do
 
   include_context 'login'
 
-  it 'ajoute une nouvelle oeuvre' do
+  it 'ajoute une nouvelle oeuvre', :focus do
     visit new_artwork_path
     expect(page).to have_content 'Ajouter une nouvelle oeuvre'
      expect {
