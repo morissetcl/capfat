@@ -7,7 +7,6 @@ RSpec.shared_examples 'fill_form' do |model, options|
       options.each do | option|
         fill_in "#{obj}_#{option.first}".to_sym, with: option.last
       end
-      attach_file("#{obj}_attachments[picture][]", Rails.root + "spec/fixtures/banner-min.jpg")
       click_on "Create #{my_model}"
     }.to change { my_model.count }
   end

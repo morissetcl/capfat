@@ -1,0 +1,5 @@
+<div class="nested-fields">
+   <%= f.file_field :picture %>
+   <%= f.hidden_field :picture_cache, :value => f.object.picture_cache %>
+  <%= link_to_remove_association "Supprimer la photo", f %>
+</div>
