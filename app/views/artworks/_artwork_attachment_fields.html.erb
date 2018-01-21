@@ -1,5 +1,21 @@
 <div class="nested-fields">
-   <%= f.file_field :picture %>
+   <%= f.file_field :picture, class: 'photo_upload file' %>
    <%= f.hidden_field :picture_cache, :value => f.object.picture_cache %>
   <%= link_to_remove_association "Supprimer la photo", f %>
 </div>
+<script>
+$(document).ready(function(){
+  var preview = $(".upload-preview img");
+
+  $(".file").change(function(event){
+     var input = $(event.currentTarget);
+     var file = input[0].files[0];
+     var reader = new FileReader();
+     reader.onload = function(e){
+         image_base64 = e.target.result;
+         preview.attr("src", image_base64);
+     };
+     reader.readAsDataURL(file);
+  });
+});
+</script>
