@@ -16,4 +16,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require cocoon
+//= require upload_preview
 //= require_tree .

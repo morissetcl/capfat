@@ -10,17 +10,12 @@
 <div>
   <p><strong>Photo:</strong></p>
 
-  <div id="order_items">
     <%= f.simple_fields_for :artwork_attachments do |attachment| %>
       <%= render 'artwork_attachment_fields', f: attachment %>
     <% end %>
     <div class="links">
       <%= link_to_add_association 'Ajouter une photo', f, :artwork_attachments %>
     </div>
-  </div>
-  <div class="upload-preview">
-      <img />
-  </div>
 <div>
 <%= f.submit %>
 <% end %>
