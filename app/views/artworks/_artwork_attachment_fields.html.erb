@@ -1,6 +1,8 @@
 <div class="nested-fields">
-   <%= f.file_field :picture, class: 'photo_upload file', id: f.object.picture_cache, onchange: "preview(this);" %>
-   <%= f.hidden_field :picture_cache, :value => f.object.picture_cache %>
-  <%= link_to_remove_association "Supprimer la photo", f %>
+  <div class="actions-form-artwork">
+    <%= f.file_field :picture, class: 'photo_upload file', id: f.object.picture_cache, onchange: "preview(this);" %>
+    <%= f.hidden_field :picture_cache, :value => f.object.picture_cache %>
+    <%= link_to_remove_association "Supprimer", f %>
+  </div>
   <div id="preview"></div>
 </div>
