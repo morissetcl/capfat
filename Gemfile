@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails"
+gem 'activeadmin', '~> 1.1'
 gem "coffee-rails", "~> 4.2"
 gem "jbuilder", "~> 2.5"
 gem "pg", "~> 0.18.4"
@@ -24,6 +25,7 @@ gem "cocoon"
 gem 'jquery-rails'
 
 group :development, :test do
+  gem "spring"
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   gem "better_errors"
   gem "binding_of_caller"
