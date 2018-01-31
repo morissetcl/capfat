@@ -12,7 +12,7 @@ class ArtworksController < ApplicationController
   def create
     @artwork = Artwork.new(artwork_params)
     if @artwork.save
-      redirect_to artworks_path, notice: 'Inköp tillagt'
+      redirect_to artworks_path, notice: 'Votre oeuvre a été ajouté !'
     else
       render :new
     end
