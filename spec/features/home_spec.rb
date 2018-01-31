@@ -1,10 +1,8 @@
 require "rails_helper"
 
-RSpec.describe "home", :feature do
+RSpec.describe 'home', :feature do
 
-  before :each do
-    login_as_user
-  end
+  include_context 'login'
 
   it "affiche la home" do
     visit root_path

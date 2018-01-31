@@ -15,6 +15,13 @@ gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem 'devise'
+gem 'carrierwave', '~> 1.0'
+gem 'figaro'
+gem 'cloudinary'
+gem 'simple_form'
+gem "font-awesome-rails"
+gem "cocoon"
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'

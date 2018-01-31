@@ -12,5 +12,9 @@
 //= uiki.min.js
 //= uiki-icons.min.js
 //= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
+//= require cocoon
+//= require upload_preview
 //= require_tree .
