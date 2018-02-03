@@ -10,10 +10,14 @@ RSpec.describe 'Admin - Artwork - Show', :feature do
     click_on "Login"
   end
 
-  it "display the artwork" do
-    artwork = create :artwork, name: "L'origine du monde", price: 20
+  it "display the artwork and its picture" do
+    user = create :user, email: 'dodo@email.fr'
+    artwork = create :artwork, name: "L'origine du monde", price: 20, user: user
+    attachment = create :artwork_attachment, artwork: artwork
     visit admin_artwork_path artwork
-    expect(page).to have_content "L'origine du monde"
-    expect(page).to have_content 20
+    expect(page).to have_content artwork.name
+    expect(page).to have_content artwork.user.email
+    expect(page).to have_content artwork.price
+    expect(page).to have_content attachment.picture_url
   end
 end
