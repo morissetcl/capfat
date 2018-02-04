@@ -24,6 +24,11 @@ gem "font-awesome-rails"
 gem "cocoon"
 gem 'jquery-rails'
 gem 'geocoder'
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 group :development, :test do
   gem "spring"

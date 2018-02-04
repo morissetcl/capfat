@@ -17,4 +17,6 @@
 //= require turbolinks
 //= require cocoon
 //= require upload_preview
+//= require underscore
+//= require gmaps/google
 //= require_tree .
