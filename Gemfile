@@ -23,6 +23,7 @@ gem 'simple_form'
 gem "font-awesome-rails"
 gem "cocoon"
 gem 'jquery-rails'
+gem 'geocoder'
 
 group :development, :test do
   gem "spring"

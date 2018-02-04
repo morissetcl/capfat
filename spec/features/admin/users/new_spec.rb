@@ -12,7 +12,6 @@ RSpec.describe 'Admin - User - New', :feature do
 
   it "Create a new user" do
     visit new_admin_user_path
-    save_and_open_page
     expect {
       fill_in :user_email, with: 'hello@gmail.com'
       fill_in :user_street, with: '17 boulevard ornano'
@@ -22,5 +21,6 @@ RSpec.describe 'Admin - User - New', :feature do
       fill_in :user_password_confirmation, with: 'password'
       click_on 'Create User'
     }.to change{ User.count }
+    expect(User.last.reload.geocoded?).to be true
   end
 end
