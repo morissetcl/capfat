@@ -1,0 +1,21 @@
+<h2><%= @artwork.name %></h2>
+
+<% if @user.geocoded? %>
+  <div id="show-map" style="width: 50%; height: 600px;"></div>
+
+  <% content_for(:after_js) do %>
+    <script type="text/javascript">
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'show-map' } }, function(){
+        markers = handler.addMarkers(<%= raw @artwork_marker.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    </script>
+  <% end %>
+<% end %>
