@@ -1,4 +1,7 @@
 <h2><%= @artwork.name %></h2>
+<% @artwork.artwork_attachments.each do |a| %>
+  <%=  cl_image_tag a.picture, height: 250, width: 350, crop: :fill %>
+<% end %>
 
 <% if @user.geocoded? %>
   <div id="show-map" style="width: 50%; height: 600px;"></div>
