@@ -1,7 +1,10 @@
-class ArtworksController < ApplicationController
+class ArtworksController < MarkersController
+
   def index
     @artworks = Artwork.all
+    @users = User.where.not(latitude: nil, longitude: nil)
     fresh_when(@artworks)
+    super
   end
 
   def new
@@ -11,11 +14,8 @@ class ArtworksController < ApplicationController
   def show
     @artwork = Artwork.find(params[:id])
     @user = Artwork.find(params[:id]).user
-    @artwork_marker = Gmaps4rails.build_markers(@user) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
-    end
     fresh_when [@artwork, @user]
+    super
   end
 
   def create

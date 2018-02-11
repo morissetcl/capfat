@@ -10,7 +10,7 @@ RSpec.describe "Artwork#show", :feature do
     click_on "Log in"
   end
 
-  it 'Show an artwork', :focus do
+  it 'Show an artwork' do
     artwork = create :artwork
     visit artwork_path artwork
     expect(page).to have_content artwork.name

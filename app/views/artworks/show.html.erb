@@ -10,14 +10,10 @@
     <script type="text/javascript">
       var handler = Gmaps.build('Google');
       handler.buildMap({ internal: { id: 'show-map' } }, function(){
-        markers = handler.addMarkers(<%= raw @artwork_marker.to_json %>);
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
+        handler.getMap().setZoom(16);
       });
     </script>
   <% end %>
