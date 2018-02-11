@@ -2,9 +2,8 @@ class ArtworksController < MarkersController
 
   def index
     @artworks = Artwork.all
-    @users = User.where.not(latitude: nil, longitude: nil)
-    fresh_when(@artworks)
     super
+    fresh_when(@artworks)
   end
 
   def new
@@ -13,9 +12,8 @@ class ArtworksController < MarkersController
 
   def show
     @artwork = Artwork.find(params[:id])
-    @user = Artwork.find(params[:id]).user
-    fresh_when [@artwork, @user]
     super
+    fresh_when(@artwork)
   end
 
   def create

@@ -1,3 +1,6 @@
 class HomeController < MarkersController
-  def index; end
+  def index
+    super
+    fresh_when(@users)
+  end
 end
