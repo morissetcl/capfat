@@ -2,6 +2,6 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
-  root to: 'artworks#index'
+  root to: 'home#index'
   resources :artworks
 end

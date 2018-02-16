@@ -3,10 +3,12 @@ class MarkersController < ApplicationController
   protected
 
   def index
+    @users = User.where.not(latitude: nil, longitude: nil)
     marker_map(@users)
   end
 
   def show
+    @user = Artwork.find(params[:id]).user
     marker_map(@user)
   end
 
