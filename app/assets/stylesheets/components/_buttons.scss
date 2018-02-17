@@ -1,0 +1,13 @@
+form input[type=submit] {
+  background: #364F6B;
+  border-radius: 0;
+  margin-right: 0 !important;
+  -moz-transition: all .5s ease-in;
+  -o-transition: all .5s ease-in;
+  -webkit-transition: all .5s ease-in;
+  transition: all .5s ease-in;
+  text-shadow: none;
+  &:not(.disabled):hover {
+    background: #351F39;
+  }
+}

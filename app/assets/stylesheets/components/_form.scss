@@ -76,3 +76,32 @@ input[type="number"]
 {
   font-size:16px;
 }
+
+
+.login_form{
+  text-align: center;
+  width: 300px;
+  margin: auto;
+  #user_email {
+    margin-bottom: 10px;
+  }
+  .field_login_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    #user_remember_me{
+      width: 30px;
+    }
+  }
+}
+
+.coucou {
+  width: 200px;
+  text-align: left;
+  padding-left: 30px;
+  margin-top: 20px;
+}
+
+.title {
+  text-align: center;
+}
