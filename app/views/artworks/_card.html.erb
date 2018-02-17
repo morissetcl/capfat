@@ -1,15 +1,17 @@
 <% @artworks.each do |a| %>
   <div>
     <div class="uk-card uk-card-default uk-card-small">
-       <div class="uk-card-media-top">
-         <% if a.artwork_attachments.first.present? %>
-           <%=  cl_image_tag a.artwork_attachments.first.picture, height: 250, width: 350, crop: :fill %>
-        <% end %>
-       </div>
-       <div class="uk-card-body">
-           <h3 class="uk-card-title"><%= a.name%></h3>
-           <p><%= a.description%></p>
-       </div>
+        <div class="uk-card-media-top">
+          <% if a.artwork_attachments.first.present? %>
+            <%= link_to artwork_path(a) do %>
+              <%=  cl_image_tag a.artwork_attachments.first.picture, height: 250, width: 350, crop: :fill %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="uk-card-body">
+          <h3 class="uk-card-title"><%= a.name%></h3>
+          <p><%= a.description%></p>
+        </div>
     </div>
   </div>
 <% end %>
