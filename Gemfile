@@ -25,6 +25,7 @@ gem "cocoon"
 gem 'jquery-rails'
 gem 'geocoder'
 gem "gmaps4rails"
+gem 'friendly_id', '~> 5.1.0'
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"

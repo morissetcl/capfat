@@ -8,7 +8,7 @@ class MarkersController < ApplicationController
   end
 
   def show
-    @user = Artwork.find(params[:id]).user
+    @user = Artwork.friendly.find(params[:id]).user
     marker_map(@user)
   end
 
