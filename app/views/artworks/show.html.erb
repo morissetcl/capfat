@@ -1,7 +1,10 @@
 <h2><%= @artwork.name %></h2>
-<% @artwork.artwork_attachments.each do |a| %>
-  <%=  cl_image_tag a.picture, height: 250, width: 350, crop: :fill %>
-<% end %>
+
+<ul class="bxslider">
+  <% @artwork.artwork_attachments.each do |a| %>
+    <%=  cl_image_tag a.picture, :with => 0.25, scale: 1 %>
+  <% end %>
+</ul>
 
 <% if @user.geocoded? %>
   <div id="show-map" style="width: 50%; height: 600px;"></div>
@@ -18,3 +21,10 @@
     </script>
   <% end %>
 <% end %>
+
+
+<script>
+$(document).ready(function(){
+  $('.bxslider').bxSlider();
+});
+</script>
