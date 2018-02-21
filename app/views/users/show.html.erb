@@ -1,0 +1,6 @@
+<p><%= @user.email %></p>
+
+<% @user_artworks.each do |artwork| %>
+  <%= artwork.name %>
+  <%= artwork.artwork_attachments.first.picture %>
+<% end %>
