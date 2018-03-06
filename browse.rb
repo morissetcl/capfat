@@ -13,7 +13,25 @@ Dir.glob('./spec/features/**/*.rb') do |rb_file|
   end
   specs_content << spec_file_content
 end
-p specs_content.first
+spec_files = specs_content
+expect = ['expect'].freeze #mot clé pour choper les expects
+supercool = []
+
+spec_files.each do |lines|
+  lines.each do |line|
+    line.split(/\W+/).each do |a|
+      if expect.include?(a)
+        supercool.push(line)
+      end
+    end
+  end
+end
+duplication = []
+supercool.each do |h|
+  duplication << h.scan(/\([^)]+\)/)
+end
+good = duplication.flatten.delete_if { |a| a == "(page)"}
+p good
 #######
 
 ####### récupere les models de l'app########
