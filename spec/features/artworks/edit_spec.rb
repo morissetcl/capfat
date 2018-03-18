@@ -14,5 +14,6 @@ RSpec.describe "Artwork#edit", :feature do
     click_on 'Update Artwork'
     artwork.reload
     expect(artwork.name).to eq 'Sisi La Famille'
+    expect(artwork.price).to eq 'Dany Dan le maniac'
   end
 end

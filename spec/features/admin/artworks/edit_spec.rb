@@ -15,6 +15,7 @@ RSpec.describe 'Admin - Artwork - Edit', :feature do
     visit edit_admin_artwork_path artwork
     fill_in :artwork_name, with: 'Dany Dan le maniac'
     click_on 'Update Artwork'
-    expect(artwork.reload.name).to eq 'Dany Dan le maniac'
+    expect(artwork.name).to eq 'Dany Dan le maniac'
+    expect(artwork.created_at).to eq 'Dany Dan le maniac'
   end
 end
