@@ -6,7 +6,7 @@ class GetDataFromSpec
     def resultat_trie mot_cle
       datas = recupere_data mot_cle
       contenu_trie = []
-      itere_sur_chaque_ligne_des_expects(datas, contenu_trie)
+      itere_sur_chaque_ligne_des_expects(datas, contenu_trie, mot_cle)
       clean_result(contenu_trie)
     end
 
@@ -14,7 +14,11 @@ class GetDataFromSpec
 
     def recupere_data mot_cle
       specs_content = parcours_spec_et_recupere_content
-      expect = [mot_cle].freeze #mot clé pour choper les expects
+      if mot_cle == 'result'
+        expect = ['expect'].freeze #mot clé pour choper les expects
+      else
+        expect = [mot_cle].freeze
+      end
       datas = []
       parcours_recupere_data(specs_content, expect, datas)
       datas
@@ -55,11 +59,15 @@ class GetDataFromSpec
       end
     end
 
-    def itere_sur_chaque_ligne_des_expects(array_initial, array_resultat)
+    def itere_sur_chaque_ligne_des_expects(array_initial, array_resultat, mot_cle)
       array_initial.each do |line|
         contenu = []
         contenu << line.first
-        recupere_contenu_entre_parenthese(line, contenu)
+        if mot_cle == 'result'
+          recupere_le_contenu_du_resultat_attendu(line, contenu)
+        else
+          recupere_contenu_entre_parenthese(line, contenu)
+        end
         array_resultat << contenu
       end
     end
@@ -67,6 +75,14 @@ class GetDataFromSpec
     def recupere_contenu_entre_parenthese(line, array_initial)
       line.each do |a|
         array_initial << a.scan(/\((.*)\)/)
+        array_initial.delete_if { |a| a.empty? }
+      end
+    end
+
+    def recupere_le_contenu_du_resultat_attendu(line, array_initial)
+      line.each do |a|
+        array_initial << a.scan(/^*have_content(.*)$/)
+        array_initial << a.scan(/^*eq(.*)$/)
         array_initial.delete_if { |a| a.empty? }
       end
     end
