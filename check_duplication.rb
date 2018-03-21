@@ -22,11 +22,7 @@ class CheckDuplication
       duplication_final = []
       datas.each do |data|
         duplication = []
-        if arg == 'result'
-          data.each{ |expect| duplication << expect }
-        else
-          data.each{ |expect| duplication << expect }
-        end
+        data.each{ |expect| duplication << expect }
         duplication_final << duplication.flatten
       end
       formate_les_resultats_par_fichier(duplication_final, arg)
@@ -50,8 +46,9 @@ class CheckDuplication
         sleep(0.2)
       end
       puts "\n\n"
-      display_result_triee = display_result.sort_by(&:last).reverse
-      display_result_triee.each { |a| puts "#{a.first.green}: you use #{a[2].to_s.light_red} times #{a[1].light_red} as #{arg}" }
+      result_triee_par_file = display_result.sort_by(&:last).reverse
+      result_triee_par_occurence = result_triee_par_file.sort_by(&:first)
+      result_triee_par_occurence.each { |a| puts "#{a.first.green}: you use #{a[2].to_s.light_red} times #{a[1].light_red} as #{arg}" }
     end
 
     def affiche_les_resultats_pour_ensemble_des_specs(arr_trie, arg)
