@@ -89,7 +89,7 @@ class GetDataFromSpec
 
     def clean_result(array)
       resultat_trie = array.map { |a| a.flatten }
-      # resultat_trie.delete_if { |a| a.include?("page")}
+      resultat_trie.delete_if { |a| a.include?("page")}
       resultat_trie.delete_if { |a| a.length == 1 }
     end
   end

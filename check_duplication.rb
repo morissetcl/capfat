@@ -48,12 +48,21 @@ class CheckDuplication
       puts "\n\n"
       result_triee_par_file = display_result.sort_by(&:last).reverse
       result_triee_par_occurence = result_triee_par_file.sort_by(&:first)
-      result_triee_par_occurence.each { |a| puts "#{a.first.green}: you use #{a[2].to_s.light_red} times #{a[1].light_red} as #{arg}" }
+      path = []
+      result_triee_par_occurence.each do |a|
+        if !path.include?(a.first)
+          path.push(a.first)
+          puts "\n"
+          puts "#{a.first.green}:"
+        end
+        puts "you use #{a[2].to_s.light_red} times #{a[1].light_red} as #{arg}"
+      end
     end
 
     def affiche_les_resultats_pour_ensemble_des_specs(arr_trie, arg)
       puts "\n\n"
       puts '----- Analyze of your expects from all yours specs -----'
+      puts "\n"
       global_array = arr_trie.flatten.flatten
       global_hash =  global_array.inject(Hash.new(0)) { |total, e| total[e] += 1 ;total}
       global_hash.delete_if { |k, v| v <= 1 }
@@ -61,6 +70,7 @@ class CheckDuplication
       global_array_trie.map do |expect_name,count|
         puts "You use #{count.to_s.light_red} times the #{expect_name.light_red} as #{arg}"
       end
+      puts "\n"
     end
   end
 end
